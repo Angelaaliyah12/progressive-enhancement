@@ -25,13 +25,13 @@ h1 {
 	margin: 0;
 	letter-spacing: -0.05em;
 }
-
+/* 
 .fdnd-nav a {
 	color: var(--blue);
 }
 .fdnd-nav a:hover, .fdnd-nav a:focus-visible {
 	text-decoration: none;
-}
+} */
 
 /* En als je een simpele button wilt, kun je deze class gebruiken */
 .fdnd-button {
@@ -55,4 +55,171 @@ video {
 :focus-visible {
 	outline: 3px solid var(--blue);
 	outline-offset: 3px;
+}
+/* open knop */
+.menu-open {
+	top: 1rem;
+	left: 1rem;
+}
+/*
+nav {
+	position: fixed;
+	inset: 0;
+	background: var(--blue-50);
+	opacity: 0;
+	pointer-events: none;
+}
+
+/* menu zelf OPEN 
+nav ul {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 80%;
+	max-width: 300px;
+	height: 100%;
+	background: var(--green);
+	list-style: none;
+	padding: 2rem;
+	margin: 0;
+
+	transform: translateX(-100%);
+}
+
+/* open state 
+nav:target {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+nav:target ul {
+	transform: translateX(0);
+}
+
+/* close knop ICON 
+.menu-close svg {
+	position: absolute;
+	top: 1rem;
+	left: 20rem;
+	fill: black;
+	z-index: 1001;
+}
+/* links SPACING 
+nav li {
+	margin: 1rem 0;
+}
+nav li :hover{
+	font-family: 'Open Sans', sans-serif;
+	line-height: 1.6;
+	background-color: var(--blue);
+	color: var(--green);
+}
+/* links OPMAAK *
+nav a {
+	text-decoration: none;
+	color: var(--blue);
+	font-size: 1.2rem;
+	display: block;
+}*/
+
+
+
+
+
+
+
+
+
+/* Carrousel */
+.carousel {
+	display:flex;
+	width: 100%; /* Zorgt ervoor dat de carrousel de volledige breedte van het scherm inneemt */
+	overflow-x: auto; /* Maakt het mogelijk om horizontaal te scrollen als de items breder zijn dan de container */
+	scroll-behavior: smooth; /* Zorgt voor een soepele scroll-ervaring */
+	anchor-name: --carousel; /* Maakt het mogelijk om de knoppen te linken op de carrousel */
+	scroll-snap-type: x mandatory; /* Zorgt ervoor dat de items netjes op hun plek 'snappen' naar de volgende item tijdens het scrollen */
+}
+/* Carrousel items */
+.carousel-item{
+	aspect-ratio: 5/3; /* Zorgt ervoor dat elk item een vaste verhouding heeft, in dit geval 5:3 */
+	flex: 0 0 80%; /* Zorgt ervoor dat elk item 80% van de breedte inneemt*/
+	background-color: var(--blue-50);
+	padding: 1em;
+	text-align: center;
+	font-family: 'Open Sans', sans-serif;
+	line-height: 1.6;
+	align-content: center;
+	scroll-snap-align:center; /* Zorgt ervoor dat elk item in het midden van de container 'snapt' tijdens het scrollen */
+}
+@media (min-width: 600px){
+	.carousel-item{
+		flex: 0 0 50%; /* Op grotere schermen neemt elk item 50% van de breedte in */
+	}
+}
+/* Verberg de standaard scrollbalken */
+.carousel::-webkit-scrollbar{
+	display:none;
+}
+/* De scroll knoppen */
+.carousel::scroll-button(right), .carousel::scroll-button(left){
+content:'volgende';
+color:var(--green);
+background-color: var(--blue);
+border:none;
+border-radius: 5px;
+height:40px;
+width: 80px;
+font-size: large;
+cursor: pointer; /* Zorgt ervoor dat de knoppen klikbaar zijn je krijgt dan een handje te zien */
+position:fixed; /* Zorgt ervoor dat de knoppen op een vaste positie blijven staan */
+position-anchor: --carousel; /* Zorgt ervoor dat de knoppen zich positioneren ten opzichte van de carrousel */
+position-area: right bottom; /* Plaatst de knoppen rechtsonder in de carrousel */
+translate:-20%;
+}
+.carousel::scroll-button(left){
+content:'vorige';
+position-area: left bottom; /* Plaatst de knoppen linksonder in de carrousel */
+translate:20%;
+}
+/* Disabled state van de scroll knoppen */
+.carousel::scroll-button(right):disabled, .carousel::scroll-button(left):disabled{
+opacity: 0.5;
+cursor: auto;
+}
+/* Carrousel items kleuren */
+.carousel-item:nth-child(1){
+	background-color: var(--purple);
+}
+.carousel-item:nth-child(2){
+	background-color: var(--yellow)
+}
+.carousel-item:nth-child(3){
+	background-color: var(--green)
+}
+.carousel-item:nth-child(4){
+	background-color: var(--purple)
+}
+.carousel-item:nth-child(5){
+	background-color: var(--yellow)
+}
+.carousel-item:nth-child(6){
+	background-color: var(--green)
+}
+.menu {
+	display: flex;
+	gap: 0.5em;
+	justify-content: center;
+	margin-top: 1em;
+}
+
+.carousel-nav a {
+	padding: 0.5em 1em;
+	background: var(--blue);
+	color: white;
+	text-decoration: none;
+	border-radius: 5px;
+}
+
+.carousel-nav a:hover {
+	background: var(--purple);
 }
