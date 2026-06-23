@@ -8,7 +8,43 @@
 		<link href="assets/styles.css" rel="stylesheet">
 		<style>
 			/* bron: https://www.youtube.com/watch?v=LXgEpkYpnL0 */
+body{
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background: rgb(108, 210, 244);
+}
+.toggle{
+	width: 60px;
+	height: 30px;
+	background-color: rgb(226, 250, 117);
+	border-radius: 30px;
+	position: relative;
+	cursor: pointer;
+}
+.toggle::before{
+	content:"";
+	position: absolute;
+	top: 2px;
+	left: 2pt;
+	width: 26px;
+	height: 26px;
+	background: rgb(153, 119, 234);
+	border-radius: 50%;
+	transition: 3s;
+}
+input{
+	display:none;
+}
+input:checked + .toggle{
+	background: rgb(252, 175, 236);
+}
+input:checked + .toggle::before{
+	left: 32px;
+		box-shadow: 0 4px 8px rgba(210, 16, 16, 0.621);
 
+}
 		</style>
 	</head>
 	<body>
