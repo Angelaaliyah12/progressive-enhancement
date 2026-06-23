@@ -9,25 +9,79 @@
 		rel="stylesheet">
 	<link href="assets/styles.css" rel="stylesheet">
 	<style>
-		/* Schrijf hier gewoon je CSS voor dit component */
+		body{
+			display:flex;
+			flex-direction: column;
+			gap: 20px;
+		}
+		details {
+			border: 1px solid black;
+			gap: 10px;
+			border-radius: 10px;
+			    padding: 0.5rem 1rem;
+				display:inline-block;
+		}
+		
+		.een details[open] {
+background-color: var(--purple);
+border-radius: 5px;
+&:hover{
+	background-color: #7743cb;
+}
+		}
+		.twee details[open]{
+background-color: var(--green);
+border-radius: 5px;
+&:hover{
+	background-color: #43bd98;
+}
+		}
+.drie details[open]{
+	background-color: var(--yellow);
+	&:hover{
+		background-color: #d3d151;
+	}
+}
+		summary::-webkit-details-marker {
+    display: none;
+}/* bron: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/summary */
 
-		/* Hint: Dit component kun je volledig met HTML en CSS bouwen */
+summary {
+    list-style: none;
+}
 
-		/* Hint: Denk aan de states van het component; deze kan open en dicht zijn */
+summary::before {
+    content: "+";
+    font-size: 1.2rem;
+    margin-right: 1rem;
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+summary:hover::before {
+    transform: scale(1.8);
+}
+
+details[open] summary::before {
+    content: "x";
+}
+	
 	</style>
 </head>
 
 <body>
+	<div class="een">
 	<h1>Veelgestelde vragen</h1>
-
 	<details open>
 		<summary> Wat is frontend development?
 		</summary>
-		<p> Een frontend developer ontwerpt en bouwt websites in HTML, CSS en JavaScript. Deze frontend talen leer je
+		<span> Een frontend developer ontwerpt en bouwt websites in HTML, CSS en JavaScript. Deze frontend talen leer je
 			bij ons, je hebt dus geen voorkennis nodig.
-		</p>
+		</span>
 	</details>
+	</div>
 
+	<div class="twee">
 	<details open>
 		<summary>
 			Moet ik al kunnen coderen?
@@ -38,7 +92,9 @@
 			verdiepen in de stof.
 		</p>
 	</details>
+	</div>
 
+	<div class="drie">
 	<details open>
 		<summary>
 			Wat is een Associate Degree?
@@ -56,7 +112,7 @@
 
 		</p>
 	</details>
-
+	</div>
 
 </body>
 
